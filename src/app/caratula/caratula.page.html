@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-button [routerLink]="['home']">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title> {{album.titulo}} </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large"> {{album.titulo}} </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-card>
+    <img [src]="album.caratula">
+  </ion-card>
+</ion-content>
