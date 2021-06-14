@@ -13,7 +13,6 @@ export class AlbumsService {
   }
 
   getAlbums () {
-    
     this.http.get<any[]>("/api/v1/albums").subscribe(data => {
       this.albums.next(data);
     })

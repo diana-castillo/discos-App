@@ -9,12 +9,11 @@ export class AlbumService {
   album = new Subject<any[]>();
 
   constructor(private http: HttpClient) {
-    this.getAlbum();
+    //this.getAlbum();
   }
 
-  getAlbum () {
-
-    this.http.get<any[]>("/api/v1/albums/1").subscribe(data => {
+  getAlbum (id: number) {
+    this.http.get<any[]>("/api/v1/albums/" + id).subscribe(data => {
       this.album.next(data);
     })
   }

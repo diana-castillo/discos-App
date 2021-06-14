@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-button [routerLink]="['/home']">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Comentarios</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Comentarios</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-card *ngFor="let comentario of comentarios">
+    <ion-card-header>
+      <ion-card-subtitle>
+        {{ comentario.usuario }}
+      </ion-card-subtitle>
+        {{ comentario.fecha }}
+      <p align="justify">
+        {{ comentario.texto }}
+      </p>
+      <ion-row><ion-icon name="heart-outline"></ion-icon></ion-row>
+    </ion-card-header>
+  </ion-card>
+</ion-content>

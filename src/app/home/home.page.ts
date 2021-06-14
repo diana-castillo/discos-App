@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NavigationExtras, Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
-import { AlbumService } from '../api/album.service';
 import { AlbumsService } from '../api/albums.service';
-import { CaratulaPage } from '../caratula/caratula.page';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +9,8 @@ import { CaratulaPage } from '../caratula/caratula.page';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
-  albums = []; /*
+  albums = [];
+  /*
     {
       titulo: "Birthplace",
       anio_prod: 2018,
@@ -24,10 +24,8 @@ export class HomePage implements OnInit {
       artista: "Novo Amor"
     }
   ];*/
-  pantalla;
-  albumService: AlbumService;
 
-  constructor(private albumsService: AlbumsService, public navCtrl: NavController) {}
+  constructor(private albumsService: AlbumsService, private router: Router, public navCtrl: NavController) {}
 
   ngOnInit() {
     this.albumsService.albums.subscribe(albums => {
@@ -36,10 +34,49 @@ export class HomePage implements OnInit {
     //this.albumsService.getAlbums();
   }
 
-  /*onCaratula(id: number) {
+  listaN(n: number) {
+    let lista = []
+    for( let i = 0; i < n; i++){
+      lista.push(i);
+    }
+    return lista;
+  }
+
+  onCaratula(id: number) {
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        special: JSON.stringify(id)
+      }
+    }
+    this.router.navigate(['/caratula'], navigationExtras);
     //this.navCtrl.navigateForward('/caratula');
-    this.pantalla = new CaratulaPage(this.albumService, id);
-    this.navCtrl.navigateForward(this.pantalla);
-  }*/
+  }
+
+  onArtista(id: number) {
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        special: JSON.stringify(id)
+      }
+    }
+    this.router.navigate(['/artista'], navigationExtras);
+  }
+
+  onTracks(id: number) {
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        special: JSON.stringify(id)
+      }
+    }
+    this.router.navigate(['/tracks'], navigationExtras);
+  }
+
+  onComentarios(id: number) {
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        special: JSON.stringify(id)
+      }
+    }
+    this.router.navigate(['/comentarios'], navigationExtras);
+  }
 
 }

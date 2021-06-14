@@ -19,6 +19,18 @@ const routes: Routes = [
     path: 'inicio',
     loadChildren: () => import('./inicio/inicio.module').then( m => m.InicioPageModule)
   },
+  {
+    path: 'artista',
+    loadChildren: () => import('./artista/artista.module').then( m => m.ArtistaPageModule)
+  },
+  {
+    path: 'tracks',
+    loadChildren: () => import('./tracks/tracks.module').then( m => m.TracksPageModule)
+  },
+  {
+    path: 'comentarios',
+    loadChildren: () => import('./comentarios/comentarios.module').then( m => m.ComentariosPageModule)
+  },
 ];
 
 @NgModule({

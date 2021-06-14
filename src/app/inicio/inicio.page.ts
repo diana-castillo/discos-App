@@ -14,6 +14,6 @@ export class InicioPage implements OnInit {
   }
 
   onEntrar() {
-    this.navCtrl.navigateForward('/home');
+    this.navCtrl.navigateRoot('/home');
   }
 }
